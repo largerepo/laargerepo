@@ -8,7 +8,7 @@ parameters:
   WorkingDirectory: $(System.DefaultWorkingDirectory)'
   ScriptDirectory: eng/common/scripts
   SkipCheckingForChanges: false
-
+  WhatIfPreference: false
 steps:
 - pwsh: |
     echo "git add -A"
@@ -52,3 +52,4 @@ steps:
       -GitUrl "https://$(azuresdk-github-pat)@github.com/${{ parameters.BaseRepoOwner }}/$(RepoNameWithoutOwner).git"
       -PushArgs "${{ parameters.PushArgs }}"
       -SkipCommit $${{ parameters.SkipCheckingForChanges }}
+      -WhatIf:$${{parameters.WhatIfPreference}}
