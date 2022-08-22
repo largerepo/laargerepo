@@ -109,7 +109,7 @@ do
 {
     $needsRetry = $false
     Write-Host "git push $RemoteName $PRBranchName $PushArgs"
-    if ($PSCmdlet.ShouldProcess("Push to [ $RemoteName ] [ $PRBranchName ]", "Push local changes to remote branch.")) {
+    if ($PSCmdlet.ShouldProcess("git push $RemoteName $PRBranchName $PushArgs", "Push local changes to remote branch.")) {
         git push $RemoteName $PRBranchName $PushArgs
     }
     $tryNumber++
